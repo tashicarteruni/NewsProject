@@ -12,7 +12,7 @@ from .models import Story, Author
 
 @csrf_exempt
 @login_required
-def stories_handler(request):
+def story_handler(request):
     if request.method == 'POST':
         return post_story(request)
     elif request.method == 'GET':

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from NewsApp.views import (
-    login_view, logout_view, check_status, post_story, get_stories, delete_stories
+    login_view, logout_view, check_status, story_handler, delete_stories
 )
 
 urlpatterns = [
@@ -24,7 +24,6 @@ urlpatterns = [
     path('api/login', login_view, name='login'),
     path('api/logout', logout_view, name='logout'),
     path('api/check_status', check_status, name='check_status'),
-    path('api/stories', post_story, name='post_story'),  # Changed URL for posting a story
-    path('api/stories', get_stories, name='get_stories'),  # Changed URL for getting stories
+    path('api/stories', story_handler, name='post_story'),  # Changed URL for posting a story
     path('api/stories/<str:key>', delete_stories, name='delete_stories'),
 ]

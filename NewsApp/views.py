@@ -12,6 +12,16 @@ from .models import Story, Author
 
 @csrf_exempt
 @login_required
+def stories_handler(request):
+    if request.method == 'POST':
+        return post_story(request)
+    elif request.method == 'GET':
+        return get_stories(request)
+    else:
+        return JsonResponse({'error': 'Method not allowed'}, status=405)
+
+@csrf_exempt
+@login_required
 def post_story(request):
     if request.method == 'POST':
 

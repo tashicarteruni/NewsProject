@@ -63,9 +63,9 @@ def get_stories(request):
     if request.method == 'GET':
         if request.user.is_authenticated:
             try:
-                story_category = request.GET.get('story_cat', False)
-                story_region = request.GET.get('story_region', False)
-                story_date = request.GET.get('story_date', False)
+                story_category = request.GET.get('story_cat', '*')
+                story_region = request.GET.get('story_region', '*')
+                story_date = request.GET.get('story_date', '*')
 
                 stories = Story.objects.all()
                 if story_category != '*':
